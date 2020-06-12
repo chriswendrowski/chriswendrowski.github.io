@@ -2,120 +2,52 @@
 <html lang="en-US">
 
   <head>
-    		<title>Chris Wendrowski Photography</title>
-		<meta charset="utf-8">
+    	<title>Chris Wendrowski Photography</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../style.css" media="screen"/>
   </head>
-<style>
-body {
-    font-size: 100%;
-}
-
-h1 {
-    font-size: 4em;
-    text-align: center;
-    color: navy;
-font: italic small-caps bold 40px Georgia, Garamond, serif;
-}
-
-h2 {
-    font-size: 2.5em;
-    text-align: center;
-    color: grey;
-font: italic small-caps bold 40px Georgia, Garamond, serif;
-}
-h3 {
-    font-size:1.5em;
-    color: gray;
-}
-
-p {
-    font-size: 2.5em;
-	text-align: center;
-	font-weight: bold;
-	color: black;
-font: italic small-caps bold 15px Georgia, Garamond, serif;
-
-}
-#centerThat{
-margin:auto;
-text-align:center;
-}
-
-ul {
-    list-style-type: none;
-    margin: 5px;
-    padding: 5px;
-    overflow: hidden;
-    border: 2px solid black;
-    background-color: #EDEBEB;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    font-size: 2em;
-    display: block;
-    color: grey;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-font: italic small-caps bold 30px Georgia, Garamond, serif;
-}
-
-li a:hover:not(.active) {
-    background-color: lightblue;
-}
-
-li a.active {
-    color: green;
-    background-color: lightblue;
-}
-
-#photo {
-margin:auto;
-text-align:center;
-}
-
-
-
-
-</style>
-</head>
 
 <body>
+    <br>
+    <ul>
+        <li><a id="colorType" href="https://chriswendrowski.github.io/">Home</a></li>
+        <li><a id="colorType" href="https://chriswendrowski.github.io/photos">Photos</a></li>
+    </ul>
+    <br><h2>Photos</h2><br>
+    
+    <div id="linkHolder"></div>
 
-<br>
+    <div id="photoHolder"></div>
 
-<ul>
-<li style="width:50%"><a id="colorType" href="https://chriswendrowski.github.io/">Home</a></li>
-  <li style="float:right;width:50%;"><a id="colorType" href="https://chriswendrowski.github.io/photos">Photos</a></li>
-</ul>
+    <script src="../photoCode.js"></script>
+    <script>
+        var codeImg = "<div>";
+        var codeNav = "<div><nl>";
+        var count = 0;
 
-<body style="background-color:#EDEBEB;">
-	
-<br>
-<br>
-<br>
-<h1 align="center">Photos</h1>
-<br>
-<br>
+        //photos.reverse(); //shows the newest images at top
+        photos.forEach(displayImg);
+        
+        function displayImg(item, index) {
 
+            //create raw html
 
-<br>
-<center>
-<img src="coleGolf1.JPG" alt="photo" style="width:30em;height:20em;">
-</center>
-<p>Go Jags!</p>
-<br>
+            for (i = 0; i < links.length; i++) {
+                if (item.localeCompare(links[i].firstPic) === 0) {
+                    codeImg += '<a id=\"' + links[i].linkName + '\"></a>';
+                    codeNav += '<li style=\"width:100%\"><a id=\"links\" href=\"#' + links[i].linkName + '\">' + links[i].linkName + '</a></li>';
+                }
+            }
+                codeImg += '<img src=\"' + item + '\"><br>';
+        }
 
-<br>
-<center>
-<img src="coleGolf2.JPG" alt="photo" style="width:30em;height:20em;">
-</center>
-<p>The greatest game ever played</p>
-<br>
+        codeImg += "</div>"
+        document.getElementById("photoHolder").innerHTML = codeImg
+
+        codeNav += "</nl></div>"
+        document.getElementById("linkHolder").innerHTML = codeNav
+
+    </script>
 
 </body>
 
