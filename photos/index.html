@@ -21,8 +21,8 @@
 
     <script src="../photoCode.js"></script>
     <script>
-        var codeImg = "<div>";
-        var codeNav = "<div><nl>";
+        var codeImg = "";
+        var codeNav = "<nl>";
         var count = 0;
 
         //photos.reverse(); //shows the newest images at top
@@ -40,11 +40,11 @@
                 codeImg += '<img src=\"' + item + '\"><br>';
         }
 
-        codeImg += "</div>"
-        document.getElementById("photoHolder").innerHTML = codeImg
+        codeImg += "";
+        document.getElementById("photoHolder").innerHTML = codeImg;
 
-        codeNav += "</nl></div>"
-        document.getElementById("linkHolder").innerHTML = codeNav
+        codeNav += "</nl>";
+        document.getElementById("linkHolder").innerHTML = codeNav;
 
     </script>
 
